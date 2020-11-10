@@ -1,0 +1,117 @@
+@startuml
+
+skinparam componentStyle rectangle
+
+node "[Status: Deleted]" as Deleted #lightpink {
+    (物理削除)
+}
+
+node "[Status: Canceled]" as Canceled #lightpink {
+    (論理削除)
+}
+
+node "Status: Unsubmitted" as Unsubmitted #lightgray {
+    (エントリー内データ表示) as UnsubmittedView
+    (アップロード) as UnsubmittedUpload
+    (Validateボタンを押す) as UnsubmittedValidation
+    (バリデーションステイタス表示) as UnsubmittedValidationStatusView   
+    UnsubmittedView -down-> UnsubmittedUpload
+    UnsubmittedUpload -down-> UnsubmittedValidation
+    UnsubmittedValidation -down-> UnsubmittedValidationStatusView
+
+'TODO validation true/false
+    [valid]
+    [invalid]
+    UnsubmittedValidationStatusView --> [valid]
+    UnsubmittedValidationStatusView --> [invalid]
+    [valid] --> (Submitボタンを押す)
+    [invalid] --> UnsubmittedUpload
+    (Submitボタンを押す)
+    (Request to Publicボタンを押す)
+    (Deleteボタンを押す)
+
+    note "Issue: ユーザがEntryを作らない代理申請" as NoteIssue1  #LightPink
+    (Request to Publicボタンを押す) .. NoteIssue1
+    Submitボタンを押す .. NoteIssue1
+}
+
+  node "Status: Submitted" as Submitted #lightblue {
+    (エントリー内データ表示) as SubmittedView
+    (アップロード) as SubmittedUpload #Orange
+    (Validateボタンを押す) as SubmittedValidation #Orange
+    (バリデーションステイタス表示) as SubmittedValidationStatusView
+    [査定する] #Orange
+    (Request to Cancelボタンを押す) as RequestToCancelatSubmitted
+    (ToCanceledボタンを押す) as ToCanceledatSubmitted #Orange
+    (ToUnsubmittedボタンを押す) #Orange
+    (ToPrivateボタンを押す)     #Orange
+    [査定する] --> SubmittedUpload
+    [査定する] --> (ToUnsubmittedボタンを押す)
+    [査定する] --> (ToPrivateボタンを押す) 
+    SubmittedView -down-> SubmittedUpload
+    SubmittedUpload -down-> SubmittedValidation
+    SubmittedValidation -down-> SubmittedValidationStatusView
+    RequestToCancelatSubmitted --> ToUnsubmittedボタンを押す
+    RequestToCancelatSubmitted --> ToCanceledatSubmitted
+    note "エントリー取下げ申請ボタン追加" as NoteIssue2  #LightPink
+    RequestToCancelatSubmitted .up. NoteIssue2
+
+    note "Issue: toPrivateとtoPublicの一括操作" as NoteIssue3  #LightPink
+    ToPrivateボタンを押す .. NoteIssue3
+
+    note "取下げ申請許可" as NoteToCanceled
+    ToCanceledatSubmitted .. NoteToCanceled
+
+    note "エントリー差し戻し" as NoteToUnsubmitted
+    ToUnsubmittedボタンを押す .. NoteToUnsubmitted
+
+    note "Accession No.発行許可" as NoteToPrivate
+    ToPrivateボタンを押す .. NoteToPrivate   
+  }
+
+  node "Status: Private" as Private #LightCyan {
+    (エントリー内データ表示) as PrivateView
+    (アップロード) as PrivateUpload #Orange
+    (Validateボタンを押す) as PrivateValidation #Orange
+    (バリデーションステイタス表示) as PrivateValidationStatusView
+    (Request to Cancelボタンを押す) as RequestToCancelatPrivate
+    (ToCanceledボタンを押す) as ToCanceledatPrivate #Orange    
+    RequestToCancelatPrivate --> ToCanceledatPrivate
+    PrivateView -down-> PrivateUpload
+    PrivateUpload -down-> PrivateValidation
+    PrivateValidation -down-> PrivateValidationStatusView
+
+    (ToPublicボタンを押す) #Orange
+
+  }
+  node "Status: Public" as Public {
+    (Replacedボタンを押す) #Orange
+    (ToSuppressedボタンを押す) #Orange
+    (ToKilledボタンを押す) #Orange
+    note "Issue: Replace先の入力操作" as NoteIssue4  #LightPink
+    (Replacedボタンを押す) .right. NoteIssue4
+
+  }
+  node "Status: Suppressed" as Suppressed {
+  }
+  node "Status: Replaced" as Replaced {
+  }
+
+  node "Status: Killed" as Killed {
+  }
+
+'(Request to Publicボタンを押す) -right-> (ToPublicボタンを押す)
+(ToUnsubmittedボタンを押す) -up-> Unsubmitted
+(Deleteボタンを押す) -up-> Deleted
+(Submitボタンを押す) --> Submitted
+ToCanceledatSubmitted --> Canceled
+ToCanceledatPrivate --> Canceled
+(ToPrivateボタンを押す) --> Private
+(ToSuppressedボタンを押す) --> Suppressed
+(Replacedボタンを押す) --> Replaced
+(ToKilledボタンを押す) --> Killed
+(ToPublicボタンを押す) --> Public
+
+' Unsubmitted -down-> Submitted
+
+@enduml
