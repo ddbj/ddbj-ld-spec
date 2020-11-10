@@ -1,4 +1,4 @@
-@startuml
+@startuml DDBJ
 
 skinparam componentStyle rectangle
 
@@ -30,7 +30,7 @@ node "Status: Unsubmitted" as Unsubmitted #lightgray {
     (Request to Publicボタンを押す)
     (Deleteボタンを押す)
 
-    note "Issue: ユーザがEntryを作らない代理申請" as NoteIssue1  #LightPink
+    note "Issue: ユーザがEntryを作らない代理申請\n→ Create Entry後にentriesの一覧ページでアカウント（メールアドレス）選択して\n一般ユーザ権限に移譲できるようにする" as NoteIssue1  #LightPink
     (Request to Publicボタンを押す) .. NoteIssue1
     Submitボタンを押す .. NoteIssue1
 }
@@ -45,6 +45,7 @@ node "Status: Unsubmitted" as Unsubmitted #lightgray {
     (ToCanceledボタンを押す) as ToCanceledatSubmitted #Orange
     (ToUnsubmittedボタンを押す) #Orange
     (ToPrivateボタンを押す)     #Orange
+    (ToPublicボタンを押す) as ToPublicatSubmitted #Orange    
     [査定する] --> SubmittedUpload
     [査定する] --> (ToUnsubmittedボタンを押す)
     [査定する] --> (ToPrivateボタンを押す) 
@@ -53,14 +54,14 @@ node "Status: Unsubmitted" as Unsubmitted #lightgray {
     SubmittedValidation -down-> SubmittedValidationStatusView
     RequestToCancelatSubmitted --> ToUnsubmittedボタンを押す
     RequestToCancelatSubmitted --> ToCanceledatSubmitted
-    note "エントリー取下げ申請ボタン追加" as NoteIssue2  #LightPink
+    note "Issue: エントリー取下げ申請ボタン追加\nSubmittedステイタスではUnsubmiittedに差し戻し、\nPrivate(ID発行後）は論理削除で良いか確認する" as NoteIssue2  #LightPink
     RequestToCancelatSubmitted .up. NoteIssue2
 
     note "Issue: toPrivateとtoPublicの一括操作" as NoteIssue3  #LightPink
     ToPrivateボタンを押す .. NoteIssue3
 
-    note "取下げ申請許可" as NoteToCanceled
-    ToCanceledatSubmitted .. NoteToCanceled
+    note "取下げ申請許可" as NoteToCanceledatSubmitted
+    ToCanceledatSubmitted .. NoteToCanceledatSubmitted
 
     note "エントリー差し戻し" as NoteToUnsubmitted
     ToUnsubmittedボタンを押す .. NoteToUnsubmitted
@@ -77,25 +78,38 @@ node "Status: Unsubmitted" as Unsubmitted #lightgray {
     (Request to Cancelボタンを押す) as RequestToCancelatPrivate
     (ToCanceledボタンを押す) as ToCanceledatPrivate #Orange    
     RequestToCancelatPrivate --> ToCanceledatPrivate
-    PrivateView -down-> PrivateUpload
-    PrivateUpload -down-> PrivateValidation
-    PrivateValidation -down-> PrivateValidationStatusView
+    PrivateView ..> PrivateUpload #Gray
+    PrivateUpload ..> PrivateValidation #Gray
+    PrivateValidation --> PrivateValidationStatusView
 
-    (ToPublicボタンを押す) #Orange
+    (ToPublicボタンを押す) as ToPublicatPrivate #Orange
 
+    note "ID発行後の取下げ申請許可" as NoteToCanceledatPrivate
+    ToCanceledatPrivate .. NoteToCanceledatPrivate
+
+    note "Issue: ID発行後のアップロード、Validateは差分チェックID引継ぎなど\nデータ更新査定の課題（R3年度）" as NoteIssue5  #LightPink
+  PrivateUpload .. NoteIssue5   
   }
+
+
+
   node "Status: Public" as Public {
     (Replacedボタンを押す) #Orange
     (ToSuppressedボタンを押す) #Orange
     (ToKilledボタンを押す) #Orange
-    note "Issue: Replace先の入力操作" as NoteIssue4  #LightPink
-    (Replacedボタンを押す) .right. NoteIssue4
+
 
   }
+
+ [Accession発行]
+
   node "Status: Suppressed" as Suppressed {
   }
   node "Status: Replaced" as Replaced {
   }
+
+  note "Issue: Replace先の入力操作\n→ エントリー単位でのReplacedステイタスの変更操作自体が不要" as NoteIssue4  #LightPink
+  Replaced .down. NoteIssue4
 
   node "Status: Killed" as Killed {
   }
@@ -106,11 +120,16 @@ node "Status: Unsubmitted" as Unsubmitted #lightgray {
 (Submitボタンを押す) --> Submitted
 ToCanceledatSubmitted --> Canceled
 ToCanceledatPrivate --> Canceled
-(ToPrivateボタンを押す) --> Private
+(ToPrivateボタンを押す) --> [Accession発行処理]
+[Accession発行処理] --> Private
+
 (ToSuppressedボタンを押す) --> Suppressed
-(Replacedボタンを押す) --> Replaced
-(ToKilledボタンを押す) --> Killed
-(ToPublicボタンを押す) --> Public
+(Replacedボタンを押す) -down-> Replaced
+(ToKilledボタンを押す) -down-> Killed
+
+ToPublicatSubmitted -down-> [Accession発行処理] #Blue
+ToPublicatPrivate -down-> Public
+[Accession発行処理] -down-> Public #Blue
 
 ' Unsubmitted -down-> Submitted
 
