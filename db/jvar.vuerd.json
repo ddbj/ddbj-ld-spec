@@ -1,0 +1,4070 @@
+{
+  "canvas": {
+    "width": 2000,
+    "height": 2000,
+    "scrollTop": 161,
+    "scrollLeft": 259,
+    "show": {
+      "tableComment": true,
+      "columnComment": true,
+      "columnDataType": true,
+      "columnDefault": true,
+      "columnAutoIncrement": false,
+      "columnPrimaryKey": true,
+      "columnUnique": false,
+      "columnNotNull": true,
+      "relationship": true
+    },
+    "database": "PostgreSQL",
+    "databaseName": "",
+    "canvasType": "ERD",
+    "language": "GraphQL",
+    "tableCase": "pascalCase",
+    "columnCase": "camelCase",
+    "setting": {
+      "relationshipDataTypeSync": true,
+      "columnOrder": [
+        "columnName",
+        "columnDataType",
+        "columnNotNull",
+        "columnUnique",
+        "columnAutoIncrement",
+        "columnDefault",
+        "columnComment"
+      ]
+    }
+  },
+  "table": {
+    "tables": [
+      {
+        "name": "t_account",
+        "comment": "アカウント",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2f776d77-5d7f-be17-93f3-6d7bfad92b4f"
+          },
+          {
+            "name": "uid",
+            "comment": "DDBJアカウントUID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 126,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e75ebd31-7d25-3a81-46e7-22571f638d85"
+          },
+          {
+            "name": "refresh_token",
+            "comment": "リフレッシュトークン",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 92,
+              "widthComment": 132,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a8e36bfa-f3d4-41a1-3c06-dcb309e90197"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 68,
+          "top": 81,
+          "zIndex": 2340,
+          "widthName": 65,
+          "widthComment": 67
+        },
+        "id": "20ad227e-25f7-6ba9-06ce-a0b934bae450"
+      },
+      {
+        "name": "t_user",
+        "comment": "ユーザー",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2d67a669-e495-5b1e-88dc-4e4689380bc6"
+          },
+          {
+            "name": "account_uuid",
+            "comment": "アカウントUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 88,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a6fb79f5-df9e-57a1-191f-f732f363839c"
+          },
+          {
+            "name": "admin",
+            "comment": "管理者権限",
+            "dataType": "boolean",
+            "default": "false",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "8f0e216e-4795-82db-5027-bd21d15cf387"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 54.5,
+          "top": 304.5,
+          "zIndex": 1834,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "id": "8a02a03a-c2fd-d0f0-7336-0d6ef992c28c"
+      },
+      {
+        "name": "t_entry_role",
+        "comment": "エントリー権限",
+        "columns": [
+          {
+            "name": "account_uuid",
+            "comment": "アカウントUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 88,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "b7dd8f1f-6253-c2c3-c718-09ab88165283"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "7e4f20ff-5fe1-7792-93d3-953ecdf2a4d2"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 611,
+          "top": 91,
+          "zIndex": 613,
+          "widthName": 78,
+          "widthComment": 93
+        },
+        "id": "474cfb92-0185-8a7e-8718-fa09aa5b4743"
+      },
+      {
+        "name": "t_entry",
+        "comment": "エントリー",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          },
+          {
+            "name": "label",
+            "comment": "ラベル",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "747a5112-af68-52b7-3cb0-61cad3dd7d89"
+          },
+          {
+            "name": "title",
+            "comment": "タイトル",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "dc33656c-ddb5-14ae-7a71-eb740719e083"
+          },
+          {
+            "name": "description",
+            "comment": "デスクリプション",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 74,
+              "widthComment": 106,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e886fcd4-ccab-fbbd-d486-a042ab183252"
+          },
+          {
+            "name": "status",
+            "comment": "ステータス",
+            "dataType": "varchar",
+            "default": "'Unsubmitted'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 90
+            },
+            "id": "b1f272ab-981d-2a05-b75f-7c986cfaf1ac"
+          },
+          {
+            "name": "validation_status",
+            "comment": "バリデーションステータス",
+            "dataType": "varchar",
+            "default": "'Unvalidated'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 109,
+              "widthComment": 157,
+              "widthDataType": 60,
+              "widthDefault": 83
+            },
+            "id": "38089e1a-ad51-f6c0-43b0-007419c7d494"
+          },
+          {
+            "name": "metadata_json",
+            "comment": "メタデータJSON",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 96,
+              "widthComment": 102,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a4df5ad2-d4ed-989c-be90-8a82734a5e9e"
+          },
+          {
+            "name": "aggregate_json",
+            "comment": "集計データJSON",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 101,
+              "widthComment": 103,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "8449ec4f-4d45-9a52-96ff-a95ee33d5936"
+          },
+          {
+            "name": "editable",
+            "comment": "編集可否",
+            "dataType": "boolean",
+            "default": "true",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5ca35451-0ad7-35a3-dce4-795c4e7b05f5"
+          },
+          {
+            "name": "update_token",
+            "comment": "更新トークン",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 90,
+              "widthComment": 80,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "27c7d66a-b0c4-88a8-cb71-81cd1e5cd53a"
+          },
+          {
+            "name": "published_revision",
+            "comment": "公開リビジョン",
+            "dataType": "int",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 120,
+              "widthComment": 93,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "bf2c279b-07a4-1fb2-ea52-e0f0ab1c76b7"
+          },
+          {
+            "name": "published_at",
+            "comment": "公開日時",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 83,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 60
+            },
+            "id": "6e1e6e04-d5ce-c6d5-81db-192c846837cb"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "51ba435b-9c9f-f134-364e-19b98f099123"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "4dcf4c51-35b8-fcb5-1a87-6a2c3c255d41"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 548,
+          "top": 314,
+          "zIndex": 3179,
+          "widthName": 60,
+          "widthComment": 67
+        },
+        "id": "1db915ac-940b-b5bc-9b96-20923e765b30"
+      },
+      {
+        "name": "h_entry",
+        "comment": "エントリー履歴",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": true,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "59a07a56-4c69-67e0-ee3f-f91024094e19"
+          },
+          {
+            "name": "label",
+            "comment": "ラベル",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "adb6abd8-986c-d1b3-a519-9e19bd756e03"
+          },
+          {
+            "name": "revision",
+            "comment": "リビジョン",
+            "dataType": "integer",
+            "default": "1",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "48c4d995-ba29-a742-6b62-c7d1db7476e5"
+          },
+          {
+            "name": "title",
+            "comment": "タイトル",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "ac8802fa-6981-ebb6-65a5-28ec3942f37f"
+          },
+          {
+            "name": "description",
+            "comment": "要約",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 74,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "5da783e0-d9ae-5368-44f2-9935488ae615"
+          },
+          {
+            "name": "status",
+            "comment": "ステータス",
+            "dataType": "varchar",
+            "default": "'Unsubmitted'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 90
+            },
+            "id": "d8dad263-630a-c415-2d0b-d0bd509944d2"
+          },
+          {
+            "name": "validation_status",
+            "comment": "バリデーションステータス",
+            "dataType": "varchar",
+            "default": "'Unvalidated'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 109,
+              "widthComment": 157,
+              "widthDataType": 60,
+              "widthDefault": 83
+            },
+            "id": "dd30d697-e95b-c8f8-0c35-f441368eaf16"
+          },
+          {
+            "name": "metadata_json",
+            "comment": "メタデータJSON",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 96,
+              "widthComment": 102,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a70ee8f1-c459-872d-c4ed-8b913517b659"
+          },
+          {
+            "name": "aggregate_json",
+            "comment": "集計データJSON",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 101,
+              "widthComment": 103,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "ab556b66-55e4-69fe-c7db-e339daae2f59"
+          },
+          {
+            "name": "editable",
+            "comment": "編集可否",
+            "dataType": "boolean",
+            "default": "true",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a8abbe0c-ce8b-c669-1c88-5c80c6d49edb"
+          },
+          {
+            "name": "published_revision",
+            "comment": "公開リビジョン",
+            "dataType": "int",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 120,
+              "widthComment": 93,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a09df6ea-2e36-08e2-2912-d9c40b7087f5"
+          },
+          {
+            "name": "published_at",
+            "comment": "公開日時",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 83,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 60
+            },
+            "id": "df8d49ad-738d-0df3-2121-c236f764b8f2"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "387c3691-f28a-b0d2-3e0a-ee944a6456c4"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "df36328d-101f-ee99-f690-26610db2a346"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 586,
+          "top": 689,
+          "zIndex": 3130,
+          "widthName": 60,
+          "widthComment": 93
+        },
+        "id": "cbfa2a10-2d01-73be-8cd2-2a9ac89c4b26"
+      },
+      {
+        "name": "t_file",
+        "comment": "ファイル",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1a7d4bd4-0ad0-3894-64fb-1d08e8d5dbea"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "66f44e34-60c1-5fbc-218c-4c369f58029b"
+          },
+          {
+            "name": "name",
+            "comment": "ファイル名",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 66,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "493a3113-a63c-d176-85e6-fb9441fbe09d"
+          },
+          {
+            "name": "active",
+            "comment": "有効",
+            "dataType": "boolean",
+            "default": "false",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "3f952cb9-e72a-159f-e754-3e4738c02670"
+          },
+          {
+            "name": "type",
+            "comment": "ファイル種別",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 79,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1e37e669-b314-9e18-344d-662578093c7c"
+          },
+          {
+            "name": "revision",
+            "comment": "リビジョン",
+            "dataType": "integer",
+            "default": "1",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "53effab6-4226-07a5-4605-4524bb874e52"
+          },
+          {
+            "name": "entry_revision",
+            "comment": "エントリーリビジョン",
+            "dataType": "integer",
+            "default": "1",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 92,
+              "widthComment": 132,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "046cfbe6-6a96-26ce-0b9a-0d69ab5c3746"
+          },
+          {
+            "name": "validation_uuid",
+            "comment": "バリデーションUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 97,
+              "widthComment": 126,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1fe25404-3043-5a6f-d507-50ce7e4be778"
+          },
+          {
+            "name": "validation_status",
+            "comment": "バリデーションステータス",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 109,
+              "widthComment": 157,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "b426c469-6a8d-36c1-7b0d-dc2268e259e4"
+          },
+          {
+            "name": "uploaded_at",
+            "comment": "アップロード日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 81,
+              "widthComment": 105,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "adf121a3-e92d-35d8-f241-3dda7b9cd407"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 0,
+          "top": 488,
+          "zIndex": 3156,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "id": "c83cd32e-be68-6fa2-66ed-f2ec06029a4b"
+      },
+      {
+        "name": "t_upload",
+        "comment": "アップロード",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "アップロードUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 112,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "948016e6-b68c-6203-712d-b01688f78eb0"
+          },
+          {
+            "name": "file_uuid",
+            "comment": "ファイルUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 87,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "3cb98e02-effc-bbf7-ad68-d921852de07d"
+          },
+          {
+            "name": "ended",
+            "comment": "終了フラグ",
+            "dataType": "boolean",
+            "default": "false",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "ef52700f-33b6-4511-c86e-e78c25648414"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 64,
+          "top": 806,
+          "zIndex": 2496,
+          "widthName": 60,
+          "widthComment": 79
+        },
+        "id": "6f9ad599-928a-6fd6-450b-c81c00184ba9"
+      },
+      {
+        "name": "t_comment",
+        "comment": "コメント",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0e545df1-bc64-1b65-af2c-c5d3ef11cd69"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "78d86956-bb2b-fa81-f854-fe419a9dc638"
+          },
+          {
+            "name": "account_uuid",
+            "comment": "アカウントUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 88,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "167f2b2a-72f9-f380-23eb-bb076da6e992"
+          },
+          {
+            "name": "comment",
+            "comment": "コメント",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 63,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "7877f684-a1ad-d14a-fad4-5d6644fdf635"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "ec1e3529-7b99-1638-d7c4-0e7c9429b623"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日付",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "c1bbd8d8-aa62-43a4-6ff0-cb1d742d2a66"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1212,
+          "top": 487,
+          "zIndex": 1859,
+          "widthName": 74,
+          "widthComment": 60
+        },
+        "id": "ad771f53-f41e-b571-5008-a64474304627"
+      },
+      {
+        "name": "t_request",
+        "comment": "申請",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "109c01c6-0565-a693-4652-3871784bdd70"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e7e61a6b-2220-d9dc-27c3-864c71ec7fee"
+          },
+          {
+            "name": "account_uuid",
+            "comment": "アカウントUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 88,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "c9449b1f-868d-9737-a0c7-eef3d8b7e621"
+          },
+          {
+            "name": "type",
+            "comment": "申請タイプ",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "058433f3-3ac8-6a99-5cdf-51c2d0dea621"
+          },
+          {
+            "name": "comment",
+            "comment": "コメント",
+            "dataType": "text",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 63,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6e7ca1dd-7084-e14c-f3a6-76955b6f8691"
+          },
+          {
+            "name": "closed",
+            "comment": "完了フラグ",
+            "dataType": "boolean",
+            "default": "false",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "25d47236-c6d7-d100-ed05-94cdbaed70db"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "961bcafb-f41d-4b4a-f6a9-ff6d70a4edc6"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "af343482-99d4-9cff-c3ef-28dc57004e51"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1220,
+          "top": 716,
+          "zIndex": 3131,
+          "widthName": 63,
+          "widthComment": 60
+        },
+        "id": "2807fbdd-1ee8-61e7-7bef-5bbff0b58c9a"
+      },
+      {
+        "name": "t_study",
+        "comment": "研究",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f46e629d-c036-2261-e5e6-70106f681810"
+          },
+          {
+            "name": "id",
+            "comment": "ID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "bea45ac6-2825-cb99-80ef-4d8322bfcc07"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "0c0ce4f7-52d9-6e95-39bd-2620c65a3d75"
+          },
+          {
+            "name": "pubmed_id",
+            "comment": "パムメドID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 73,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "bb3a8a58-8529-6728-b916-16fd42e0dcc9"
+          },
+          {
+            "name": "bioproject_uuid",
+            "comment": "バイオプロジェクトUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 102,
+              "widthComment": 151,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "dc098633-c1f3-3559-9440-5bcca59c9441"
+          },
+          {
+            "name": "status",
+            "comment": "ステータス",
+            "dataType": "varchar",
+            "default": "'Unsubmitted'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 90
+            },
+            "id": "3bb8cbee-0ebe-a3a3-3c88-0bb779a49cb8"
+          },
+          {
+            "name": "published_at",
+            "comment": "公開日時",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 83,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 60
+            },
+            "id": "5f531aec-f4a6-9892-ecc7-6f8074f1c6f7"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "1ff89742-6a88-d042-9fcd-8fb3ec48da3e"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "1dceb7eb-509a-102a-baed-21aea6b51cdd"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 7,
+          "top": 1061,
+          "zIndex": 2628,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "id": "778d1a98-35ab-99f8-cec5-8d1d7ddaac3c"
+      },
+      {
+        "name": "t_experiment",
+        "comment": "実験",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "d07722f6-6499-c14d-5b81-8c9cc78d7519"
+          },
+          {
+            "name": "id",
+            "comment": "ID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2204efaa-dbdf-f2fe-30ee-8c12320bf9d3"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2b0ae3ad-0d34-3a94-b637-5d77cdc0c749"
+          },
+          {
+            "name": "study_uuid",
+            "comment": "研究UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 72,
+              "widthComment": 61,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "ef13700f-e5c8-155b-ab9b-4cd702dd8f76"
+          },
+          {
+            "name": "status",
+            "comment": "ステータス",
+            "dataType": "varchar",
+            "default": "'Unsubmitted'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 90
+            },
+            "id": "21d1efa8-d9da-5dbf-f6b2-3580607fd622"
+          },
+          {
+            "name": "published_at",
+            "comment": "公開日時",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 83,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 60
+            },
+            "id": "30bc6fae-538d-020f-ee77-4f6dcd253987"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "49b7da9f-142e-7521-224a-076be39bf22d"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "dd259dbe-df45-eb47-3c93-62d738ff626c"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 592,
+          "top": 1103,
+          "zIndex": 2765,
+          "widthName": 86,
+          "widthComment": 60
+        },
+        "id": "260a534e-e5fc-d11a-9019-6b057fa7ebc3"
+      },
+      {
+        "name": "t_assay",
+        "comment": "アッセイ",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "3ca82d95-d597-77f3-66bb-16b384544716"
+          },
+          {
+            "name": "id",
+            "comment": "ID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "738262d7-2ae5-5083-9809-5932675d836b"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e338e5d0-bb9e-57dc-97fb-62c8df571270"
+          },
+          {
+            "name": "experiment_uuid",
+            "comment": "実験UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 108,
+              "widthComment": 61,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "824984b3-93de-99e4-09f3-7e4a83cfdfda"
+          },
+          {
+            "name": "sampleset_uuid",
+            "comment": "サンプルセットUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 101,
+              "widthComment": 126,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "613f41ed-9987-9270-320e-10437cffdbf2"
+          },
+          {
+            "name": "status",
+            "comment": "ステータス",
+            "dataType": "varchar",
+            "default": "'Unsubmitted'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 90
+            },
+            "id": "cead0e25-0926-3bac-5bf2-61fe72d294e5"
+          },
+          {
+            "name": "published_at",
+            "comment": "公開日時",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 83,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 60
+            },
+            "id": "f58b888d-cb17-fef1-86cd-b8f4acfc40e3"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "592d61f7-7b4b-0803-8489-24aa61b1615e"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "b1839af0-ca62-eda7-e816-261f4bc78fad"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1249,
+          "top": 973,
+          "zIndex": 3129,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "id": "81c663b3-733f-5e91-10fc-17b7c0fbab20"
+      },
+      {
+        "name": "t_sampleset",
+        "comment": "サンプルセット",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1a783f80-88b4-a7e9-316d-f41a01c0259c"
+          },
+          {
+            "name": "id",
+            "comment": "ID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a4e18aca-d950-6813-f032-37d0cbd3614a"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "222f22be-ce1c-9ada-3498-7c8db9718df3"
+          },
+          {
+            "name": "biosample_uuid",
+            "comment": "バイオサンプルUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 101,
+              "widthComment": 125,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "133569da-0180-f9a4-ba5e-194e39deea91"
+          },
+          {
+            "name": "status",
+            "comment": "ステータス",
+            "dataType": "varchar",
+            "default": "'Unsubmitted'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 90
+            },
+            "id": "30e84eb2-d19d-94c0-4f69-00dd69c1f4d4"
+          },
+          {
+            "name": "published_at",
+            "comment": "公開日時",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 83,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 60
+            },
+            "id": "ec7c9aa8-78cf-6a28-ab92-5bf2fc014782"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "8ef0c824-921f-5a05-134d-9c93699188f8"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "4c315ec1-eff9-2653-e75e-2f799ad75b80"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1473,
+          "top": 1550,
+          "zIndex": 3119,
+          "widthName": 79,
+          "widthComment": 92
+        },
+        "id": "349b65bc-34c3-49f9-4d9a-9bd121f47d69"
+      },
+      {
+        "name": "t_sample",
+        "comment": "サンプル",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e073d08e-8472-eea1-667b-12335278fee0"
+          },
+          {
+            "name": "id",
+            "comment": "ID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "05ce0367-9a57-4595-45c5-18962c09897d"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "32eae61e-415f-f7cd-f29e-2395c71da5f4"
+          },
+          {
+            "name": "experiment_uuid",
+            "comment": "実験UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 108,
+              "widthComment": 61,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "c68f4aae-aa4e-987f-f8eb-538485ad02e1"
+          },
+          {
+            "name": "biosample_uuid",
+            "comment": "バイオサンプルUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 101,
+              "widthComment": 125,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "f6d7bf21-1bba-20ef-2056-11ba1078335c"
+          },
+          {
+            "name": "status",
+            "comment": "ステータス",
+            "dataType": "varchar",
+            "default": "'Unsubmitted'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 90
+            },
+            "id": "7d9fff4a-9faa-6309-116f-9c242760424e"
+          },
+          {
+            "name": "published_at",
+            "comment": "公開日時",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 83,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 60
+            },
+            "id": "1d346ed7-a4d6-fac0-0b5b-d533f52c07f4"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "379d783d-a08a-0f92-dcef-5e618de01a48"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "108422e1-f68c-9f89-e579-bdd358e1c992"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1129,
+          "top": 1263,
+          "zIndex": 3116,
+          "widthName": 60,
+          "widthComment": 60
+        },
+        "id": "9013c811-106e-d587-9e6a-08d08bd7e59c"
+      },
+      {
+        "name": "t_bioproject",
+        "comment": "バイオプロジェクト",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "49aa3543-1a94-521a-0eb9-7df373a49bdb"
+          },
+          {
+            "name": "accession",
+            "comment": "アクセッション",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 65,
+              "widthComment": 92,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "45d6b06b-0c2c-740e-e0c0-18db2f69e912"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 21,
+          "top": 1368,
+          "zIndex": 2518,
+          "widthName": 79,
+          "widthComment": 118
+        },
+        "id": "0692d405-88f6-44bf-b10b-8441ddef691b"
+      },
+      {
+        "name": "t_biosample",
+        "comment": "バイオサンプル",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "456388ab-9d0c-13d7-cb95-5524d0a379cb"
+          },
+          {
+            "name": "accession",
+            "comment": "アクセッション",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 65,
+              "widthComment": 92,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "e8a0de0e-4411-1afc-aabe-6c0b1928598b"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 1093,
+          "top": 1646,
+          "zIndex": 2899,
+          "widthName": 79,
+          "widthComment": 92
+        },
+        "id": "bac2213e-07f6-aaf6-cdf5-a91a231e1807"
+      },
+      {
+        "name": "t_variant_call",
+        "comment": "バリアントコール",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "65267378-54b4-dbe6-955e-f26c8c376c69"
+          },
+          {
+            "name": "id",
+            "comment": "ID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "9f9b62a4-6d30-8ace-b543-d6fd55c61c71"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "01e8f32a-8de4-bb7d-faf8-5f85bc3068e0"
+          },
+          {
+            "name": "variant_region_uuid",
+            "comment": "バリアントリージョンUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 127,
+              "widthComment": 165,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "8c99068d-1e06-3b6a-5a29-51eed51388a5"
+          },
+          {
+            "name": "experiment_uuid",
+            "comment": "実験UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 108,
+              "widthComment": 61,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "9bd3a023-8fcc-2778-e4a2-72a2b4056ddc"
+          },
+          {
+            "name": "sampleset_uuid",
+            "comment": "サンプルセットUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 101,
+              "widthComment": 126,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "58c2361b-1d2f-1425-67b7-f7046f1b946c"
+          },
+          {
+            "name": "sample_uuid",
+            "comment": "サンプルUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 82,
+              "widthComment": 87,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a2948669-004d-e7ef-4924-5b4a44b53274"
+          },
+          {
+            "name": "ss_id",
+            "comment": "SSID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "6c411081-47a1-b15c-9e83-9a31af5ee9a4"
+          },
+          {
+            "name": "rs_id",
+            "comment": "RSID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "819aa220-71ed-5aa4-fdda-cedfc335ce91"
+          },
+          {
+            "name": "tgv_id",
+            "comment": "TGVID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "2175ad87-3845-c799-b72b-7ffd626a6ead"
+          },
+          {
+            "name": "status",
+            "comment": "ステータス",
+            "dataType": "varchar",
+            "default": "'Unsubmitted'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 90
+            },
+            "id": "3c4b842d-1b8b-cfb3-c617-bc27a8c1b937"
+          },
+          {
+            "name": "published_at",
+            "comment": "公開日時",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 83,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 60
+            },
+            "id": "95922b03-c96a-5fec-5da6-d9c36d7404ab"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "db79ed8c-dda3-03cf-7294-5bf6b504b500"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "da40ab19-1db4-12f3-3874-16e4ac9e0fe0"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 489,
+          "top": 1360,
+          "zIndex": 2941,
+          "widthName": 85,
+          "widthComment": 105
+        },
+        "id": "e9c61c32-a47f-5982-6738-23387bd365b4"
+      },
+      {
+        "name": "t_variant_region",
+        "comment": "バリアントリージョン",
+        "columns": [
+          {
+            "name": "uuid",
+            "comment": "UUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": true,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": true,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "fe096bc5-ee7e-5eff-f795-c1332bf0144c"
+          },
+          {
+            "name": "id",
+            "comment": "ID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": true,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "a69516b0-96fa-f3a8-4aef-62602a747b41"
+          },
+          {
+            "name": "entry_uuid",
+            "comment": "エントリーUUID",
+            "dataType": "uuid",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": true,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 100,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "1cc491c3-5d26-06ef-8197-a189ee144dcf"
+          },
+          {
+            "name": "ss_id",
+            "comment": "SSID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "665b8f39-1404-782b-eda7-9a39f11874a1"
+          },
+          {
+            "name": "rs_id",
+            "comment": "RSID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "99d0a410-236c-4f3e-d2b2-066974a1057e"
+          },
+          {
+            "name": "tgv_id",
+            "comment": "TGVID",
+            "dataType": "varchar",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 60,
+              "widthDataType": 60,
+              "widthDefault": 60
+            },
+            "id": "dc4d8dc6-ccea-a706-8a37-7fbfb68a5610"
+          },
+          {
+            "name": "status",
+            "comment": "ステータス",
+            "dataType": "varchar",
+            "default": "'Unsubmitted'",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 60,
+              "widthComment": 67,
+              "widthDataType": 60,
+              "widthDefault": 90
+            },
+            "id": "614aaf74-96ac-3de4-188b-b5cde101e36d"
+          },
+          {
+            "name": "published_at",
+            "comment": "公開日時",
+            "dataType": "timestamp",
+            "default": "",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": false
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 83,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 60
+            },
+            "id": "abea8fdb-2942-ea2c-9152-f0f701cbff32"
+          },
+          {
+            "name": "created_at",
+            "comment": "作成日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 70,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "4938fa3a-396c-26b4-d062-793e8af085fd"
+          },
+          {
+            "name": "updated_at",
+            "comment": "更新日時",
+            "dataType": "timestamp",
+            "default": "current_timestamp",
+            "option": {
+              "autoIncrement": false,
+              "primaryKey": false,
+              "unique": false,
+              "notNull": true
+            },
+            "ui": {
+              "active": false,
+              "pk": false,
+              "fk": false,
+              "pfk": false,
+              "widthName": 75,
+              "widthComment": 60,
+              "widthDataType": 70,
+              "widthDefault": 124
+            },
+            "id": "48bc6dcb-1569-6526-9cdf-19a2873b4520"
+          }
+        ],
+        "ui": {
+          "active": false,
+          "left": 50,
+          "top": 1714,
+          "zIndex": 2860,
+          "widthName": 105,
+          "widthComment": 132
+        },
+        "id": "65024bd4-f437-dfbd-7488-f824c158043c"
+      }
+    ],
+    "indexes": []
+  },
+  "memo": {
+    "memos": [
+      {
+        "value": "",
+        "id": "bce4e8ad-f9fd-aedc-811f-2f5fef8873d6",
+        "ui": {
+          "active": false,
+          "left": 304,
+          "top": 1157,
+          "zIndex": 2420,
+          "width": 127,
+          "height": 100
+        }
+      },
+      {
+        "value": "バリアントテーブルが必要かもしれないが、バリアント情報は未確定のため、保留。",
+        "id": "30b25c58-6fb5-7c02-2fc3-659550eef5fe",
+        "ui": {
+          "active": false,
+          "left": 599,
+          "top": 1733,
+          "zIndex": 2861,
+          "width": 308,
+          "height": 100
+        }
+      }
+    ]
+  },
+  "relationship": {
+    "relationships": [
+      {
+        "identification": false,
+        "start": {
+          "tableId": "20ad227e-25f7-6ba9-06ce-a0b934bae450",
+          "columnIds": [
+            "2f776d77-5d7f-be17-93f3-6d7bfad92b4f"
+          ],
+          "x": 293.5,
+          "y": 211.5,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "8a02a03a-c2fd-d0f0-7336-0d6ef992c28c",
+          "columnIds": [
+            "a6fb79f5-df9e-57a1-191f-f732f363839c"
+          ],
+          "x": 262,
+          "y": 304.5,
+          "direction": "top"
+        },
+        "id": "ba059335-1e5c-fb05-5eb5-c66faa2e59a5",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": true,
+        "start": {
+          "tableId": "20ad227e-25f7-6ba9-06ce-a0b934bae450",
+          "columnIds": [
+            "2f776d77-5d7f-be17-93f3-6d7bfad92b4f"
+          ],
+          "x": 519,
+          "y": 102.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "474cfb92-0185-8a7e-8718-fa09aa5b4743",
+          "columnIds": [
+            "b7dd8f1f-6253-c2c3-c718-09ab88165283"
+          ],
+          "x": 611,
+          "y": 146,
+          "direction": "left"
+        },
+        "id": "b20fcded-eba4-92e7-008e-0b910e5b14dc",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": true,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 837,
+          "y": 314,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "474cfb92-0185-8a7e-8718-fa09aa5b4743",
+          "columnIds": [
+            "7e4f20ff-5fe1-7792-93d3-953ecdf2a4d2"
+          ],
+          "x": 818.5,
+          "y": 201,
+          "direction": "bottom"
+        },
+        "id": "9eb8f3d8-f2e7-2365-7760-e7056c5ea172",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": true,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 1089.875,
+          "y": 670,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "cbfa2a10-2d01-73be-8cd2-2a9ac89c4b26",
+          "columnIds": [
+            "59a07a56-4c69-67e0-ee3f-f91024094e19"
+          ],
+          "x": 875,
+          "y": 689,
+          "direction": "top"
+        },
+        "id": "47848a5c-b54c-b04a-d04b-5cd8d6600a51",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 548,
+          "y": 492,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "c83cd32e-be68-6fa2-66ed-f2ec06029a4b",
+          "columnIds": [
+            "66f44e34-60c1-5fbc-218c-4c369f58029b"
+          ],
+          "x": 567,
+          "y": 625,
+          "direction": "right"
+        },
+        "id": "b59b3573-3dff-fb3d-adbf-7607d100c0b9",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "c83cd32e-be68-6fa2-66ed-f2ec06029a4b",
+          "columnIds": [
+            "1a7d4bd4-0ad0-3894-64fb-1d08e8d5dbea"
+          ],
+          "x": 283.5,
+          "y": 762,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "6f9ad599-928a-6fd6-450b-c81c00184ba9",
+          "columnIds": [
+            "3cb98e02-effc-bbf7-ad68-d921852de07d"
+          ],
+          "x": 263.5,
+          "y": 806,
+          "direction": "top"
+        },
+        "id": "20c6b2fe-62e0-4903-2f93-70f70200de3a",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 1126,
+          "y": 581,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "ad771f53-f41e-b571-5008-a64474304627",
+          "columnIds": [
+            "78d86956-bb2b-fa81-f854-fe419a9dc638"
+          ],
+          "x": 1212,
+          "y": 535,
+          "direction": "left"
+        },
+        "id": "880805d9-2b00-fc8b-f9c4-f95ca5789ea7",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 1126,
+          "y": 403,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "2807fbdd-1ee8-61e7-7bef-5bbff0b58c9a",
+          "columnIds": [
+            "e7e61a6b-2220-d9dc-27c3-864c71ec7fee"
+          ],
+          "x": 1220,
+          "y": 774.25,
+          "direction": "left"
+        },
+        "id": "bb7ad82f-a3c1-cc74-2879-38bce84b691c",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 945.375,
+          "y": 670,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "778d1a98-35ab-99f8-cec5-8d1d7ddaac3c",
+          "columnIds": [
+            "0c0ce4f7-52d9-6e95-39bd-2620c65a3d75"
+          ],
+          "x": 561,
+          "y": 1124.375,
+          "direction": "right"
+        },
+        "id": "a9d802d7-036f-a359-e2ed-ceb86012656e",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 1017.625,
+          "y": 670,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "260a534e-e5fc-d11a-9019-6b057fa7ebc3",
+          "columnIds": [
+            "2b0ae3ad-0d34-3a94-b637-5d77cdc0c749"
+          ],
+          "x": 834,
+          "y": 1103,
+          "direction": "top"
+        },
+        "id": "afa41e69-18b5-2cdb-ba43-72c15a68431d",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 873.125,
+          "y": 670,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "81c663b3-733f-5e91-10fc-17b7c0fbab20",
+          "columnIds": [
+            "e338e5d0-bb9e-57dc-97fb-62c8df571270"
+          ],
+          "x": 1249,
+          "y": 1036.375,
+          "direction": "left"
+        },
+        "id": "29b6d184-4448-dd23-543c-cf5add83ed58",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 584.125,
+          "y": 670,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "349b65bc-34c3-49f9-4d9a-9bd121f47d69",
+          "columnIds": [
+            "222f22be-ce1c-9ada-3498-7c8db9718df3"
+          ],
+          "x": 1473,
+          "y": 1588.8333333333335,
+          "direction": "left"
+        },
+        "id": "1fe7c695-f00f-63f3-5273-1bf395d04806",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 728.625,
+          "y": 670,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "9013c811-106e-d587-9e6a-08d08bd7e59c",
+          "columnIds": [
+            "32eae61e-415f-f7cd-f29e-2395c71da5f4"
+          ],
+          "x": 1129,
+          "y": 1474.25,
+          "direction": "left"
+        },
+        "id": "17ee4b0e-3609-8892-f562-85e6919be284",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "20ad227e-25f7-6ba9-06ce-a0b934bae450",
+          "columnIds": [
+            "2f776d77-5d7f-be17-93f3-6d7bfad92b4f"
+          ],
+          "x": 519,
+          "y": 189.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "2807fbdd-1ee8-61e7-7bef-5bbff0b58c9a",
+          "columnIds": [
+            "c9449b1f-868d-9737-a0c7-eef3d8b7e621"
+          ],
+          "x": 1220,
+          "y": 890.75,
+          "direction": "left"
+        },
+        "id": "c30a060e-8741-8020-c531-bbc25a88079c",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "20ad227e-25f7-6ba9-06ce-a0b934bae450",
+          "columnIds": [
+            "2f776d77-5d7f-be17-93f3-6d7bfad92b4f"
+          ],
+          "x": 519,
+          "y": 146.25,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "ad771f53-f41e-b571-5008-a64474304627",
+          "columnIds": [
+            "167f2b2a-72f9-f380-23eb-bb076da6e992"
+          ],
+          "x": 1212,
+          "y": 631,
+          "direction": "left"
+        },
+        "id": "828d7ed0-3777-b27b-109b-d22fe7edd1eb",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "778d1a98-35ab-99f8-cec5-8d1d7ddaac3c",
+          "columnIds": [
+            "f46e629d-c036-2261-e5e6-70106f681810"
+          ],
+          "x": 561,
+          "y": 1251.125,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "260a534e-e5fc-d11a-9019-6b057fa7ebc3",
+          "columnIds": [
+            "ef13700f-e5c8-155b-ab9b-4cd702dd8f76"
+          ],
+          "x": 592,
+          "y": 1219.5,
+          "direction": "left"
+        },
+        "id": "35fcef44-da27-fa3f-49a1-acc34b201e12",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "260a534e-e5fc-d11a-9019-6b057fa7ebc3",
+          "columnIds": [
+            "d07722f6-6499-c14d-5b81-8c9cc78d7519"
+          ],
+          "x": 1076,
+          "y": 1277.75,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "9013c811-106e-d587-9e6a-08d08bd7e59c",
+          "columnIds": [
+            "c68f4aae-aa4e-987f-f8eb-538485ad02e1"
+          ],
+          "x": 1129,
+          "y": 1305.25,
+          "direction": "left"
+        },
+        "id": "b9bea15d-7c38-d4c2-f19c-d0acb6d6e0e9",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "0692d405-88f6-44bf-b10b-8441ddef691b",
+          "columnIds": [
+            "49aa3543-1a94-521a-0eb9-7df373a49bdb"
+          ],
+          "x": 213,
+          "y": 1368,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "778d1a98-35ab-99f8-cec5-8d1d7ddaac3c",
+          "columnIds": [
+            "dc098633-c1f3-3559-9440-5bcca59c9441"
+          ],
+          "x": 284,
+          "y": 1314.5,
+          "direction": "bottom"
+        },
+        "id": "b0551aab-d7bf-24b3-778f-c4b1c8ae446a",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "bac2213e-07f6-aaf6-cdf5-a91a231e1807",
+          "columnIds": [
+            "456388ab-9d0c-13d7-cb95-5524d0a379cb"
+          ],
+          "x": 1285,
+          "y": 1646,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "9013c811-106e-d587-9e6a-08d08bd7e59c",
+          "columnIds": [
+            "f6d7bf21-1bba-20ef-2056-11ba1078335c"
+          ],
+          "x": 1396,
+          "y": 1516.5,
+          "direction": "bottom"
+        },
+        "id": "3896eabf-9233-54bd-9430-d1c64b20efc6",
+        "relationshipType": "One"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "260a534e-e5fc-d11a-9019-6b057fa7ebc3",
+          "columnIds": [
+            "d07722f6-6499-c14d-5b81-8c9cc78d7519"
+          ],
+          "x": 1076,
+          "y": 1161.25,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "81c663b3-733f-5e91-10fc-17b7c0fbab20",
+          "columnIds": [
+            "824984b3-93de-99e4-09f3-7e4a83cfdfda"
+          ],
+          "x": 1249,
+          "y": 1163.125,
+          "direction": "left"
+        },
+        "id": "47cf5a54-36a6-c3d6-0c30-4e4ac2c03dd0",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "349b65bc-34c3-49f9-4d9a-9bd121f47d69",
+          "columnIds": [
+            "1a783f80-88b4-a7e9-316d-f41a01c0259c"
+          ],
+          "x": 1736.5,
+          "y": 1550,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "81c663b3-733f-5e91-10fc-17b7c0fbab20",
+          "columnIds": [
+            "613f41ed-9987-9270-320e-10437cffdbf2"
+          ],
+          "x": 1516.5,
+          "y": 1226.5,
+          "direction": "bottom"
+        },
+        "id": "4bcf15de-04e2-b7cf-7aee-4592686a205b",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 800.875,
+          "y": 670,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "e9c61c32-a47f-5982-6738-23387bd365b4",
+          "columnIds": [
+            "01e8f32a-8de4-bb7d-faf8-5f85bc3068e0"
+          ],
+          "x": 637.25,
+          "y": 1360,
+          "direction": "top"
+        },
+        "id": "79501db9-9e57-0e86-43ba-8e4c56b42ab0",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "1db915ac-940b-b5bc-9b96-20923e765b30",
+          "columnIds": [
+            "a92c7b8d-5515-cc05-d753-6eaee9e5193c"
+          ],
+          "x": 656.375,
+          "y": 670,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "65024bd4-f437-dfbd-7488-f824c158043c",
+          "columnIds": [
+            "1cc491c3-5d26-06ef-8197-a189ee144dcf"
+          ],
+          "x": 171,
+          "y": 1714,
+          "direction": "top"
+        },
+        "id": "e812ba51-b139-75f1-d6f2-0f283dbee00f",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "65024bd4-f437-dfbd-7488-f824c158043c",
+          "columnIds": [
+            "fe096bc5-ee7e-5eff-f795-c1332bf0144c"
+          ],
+          "x": 413,
+          "y": 1714,
+          "direction": "top"
+        },
+        "end": {
+          "tableId": "e9c61c32-a47f-5982-6738-23387bd365b4",
+          "columnIds": [
+            "8c99068d-1e06-3b6a-5a29-51eed51388a5"
+          ],
+          "x": 489,
+          "y": 1538,
+          "direction": "left"
+        },
+        "id": "a1bde7b1-1bdf-3865-7f93-895e823e109d",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "260a534e-e5fc-d11a-9019-6b057fa7ebc3",
+          "columnIds": [
+            "d07722f6-6499-c14d-5b81-8c9cc78d7519"
+          ],
+          "x": 834,
+          "y": 1336,
+          "direction": "bottom"
+        },
+        "end": {
+          "tableId": "e9c61c32-a47f-5982-6738-23387bd365b4",
+          "columnIds": [
+            "9bd3a023-8fcc-2778-e4a2-72a2b4056ddc"
+          ],
+          "x": 933.75,
+          "y": 1360,
+          "direction": "top"
+        },
+        "id": "92d06b0e-b8b8-c7f0-8a31-278e3a1dc224",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "9013c811-106e-d587-9e6a-08d08bd7e59c",
+          "columnIds": [
+            "e073d08e-8472-eea1-667b-12335278fee0"
+          ],
+          "x": 1129,
+          "y": 1389.75,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "e9c61c32-a47f-5982-6738-23387bd365b4",
+          "columnIds": [
+            "a2948669-004d-e7ef-4924-5b4a44b53274"
+          ],
+          "x": 1082,
+          "y": 1449,
+          "direction": "right"
+        },
+        "id": "42284fe8-8460-ce95-95c5-b274305884a9",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "349b65bc-34c3-49f9-4d9a-9bd121f47d69",
+          "columnIds": [
+            "1a783f80-88b4-a7e9-316d-f41a01c0259c"
+          ],
+          "x": 1473,
+          "y": 1666.5000000000002,
+          "direction": "left"
+        },
+        "end": {
+          "tableId": "e9c61c32-a47f-5982-6738-23387bd365b4",
+          "columnIds": [
+            "58c2361b-1d2f-1425-67b7-f7046f1b946c"
+          ],
+          "x": 1082,
+          "y": 1627,
+          "direction": "right"
+        },
+        "id": "e80860ea-0272-0008-fd4b-115ae71c4f1b",
+        "relationshipType": "OneN"
+      },
+      {
+        "identification": false,
+        "start": {
+          "tableId": "bac2213e-07f6-aaf6-cdf5-a91a231e1807",
+          "columnIds": [
+            "456388ab-9d0c-13d7-cb95-5524d0a379cb"
+          ],
+          "x": 1477,
+          "y": 1701,
+          "direction": "right"
+        },
+        "end": {
+          "tableId": "349b65bc-34c3-49f9-4d9a-9bd121f47d69",
+          "columnIds": [
+            "133569da-0180-f9a4-ba5e-194e39deea91"
+          ],
+          "x": 1473,
+          "y": 1744.166666666667,
+          "direction": "left"
+        },
+        "id": "98ef1fec-dc87-2e19-b2d6-e582847d0eb8",
+        "relationshipType": "One"
+      }
+    ]
+  }
+}
